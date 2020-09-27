@@ -22,8 +22,8 @@ $(document).ready(function () {
     $.ajax({
       url: 'getinfo/'+ record_id,
       type: 'POST',
-      success: function () {
-        location.replace("http://localhost/sample/public/index.php/pay")
+      success: function (response) {
+        window.location.replace($("#btn_click").attr("href"));
       }
     });
   });

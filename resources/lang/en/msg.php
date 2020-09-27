@@ -63,6 +63,18 @@ return [
     "See all messages"=> "See all messages",
     "See all Notifications"=> "See all Notifications",
     "Managers" => "Managers",
-    "Author page"=> "Author page"
+    "Category" => "Category",
+    "category" => "Category",
+    "Author page"=> "Author page",
+    "1"=>"1",
+    "2"=>"2",
+    "3"=>"3",
+    "4"=>"4",
+    "5"=>"5",
+    "6"=>"6",
+    "7"=>"7",
+    "8"=>"8",
+    "9"=>"9",
+    "0"=>"0"
 ]
 ?>

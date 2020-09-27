@@ -29,8 +29,14 @@
                 <tr>
                     <td>{{ $article->id }}</td>
                     <td>{{$article->title}}</td>
-                    <td>{{ $article->category }}</td>
-                    <td>{{$article->body}}</td>
+                    @if(__('msg.Fa') == 'فارسی')
+
+                    <td> <?php convertEnToFa($article->category); ?> </td>
+                    <td> <?php convertEnToFa($article->body); ?></td>
+                    @else
+                        <td> {{ $article->category }} </td>
+                        <td> {{ $article->body }}</td>
+                    @endif
                     <td><a class = "btn btn-primary" style="cursor: pointer ; color: white" href="{{ url('author/edit',['id'=>$article->id]) }}" data-id="{{ $article->id }}" id="btn_update">Edit</a>
                     @if($article->status != 1)
                         <a class = "btn btn-success" style="cursor: pointer ; color: white" href="{{ url('author/confirm',['id'=>$article->id]) }}" data-id="{{ $article->id }}" id="btn_update">Confirm</a>
