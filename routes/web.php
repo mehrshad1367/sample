@@ -18,7 +18,12 @@ Route::get('/', function () {
 
 });
 Auth::routes();
+Route::get('author/edit/2', function(){
+dd();
+    return redirect('profile/2');
+});
 Route::get('lang/{ln}', 'Lang\LangController@ln')->name('lang');
+
 Route::group(['middleware' => ['langCheck']], function () {
 Route::group(['middleware'=>['auth']], function (){
 
@@ -78,3 +83,6 @@ Route::get('zagma/orderwitharray', 'PostController@orderwitharray');
 //Auth::routes();
 //
 //Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('marketing/Dads/edit/{id}','DPaneloAdvertisingController@edit')->name('Dads.edit');

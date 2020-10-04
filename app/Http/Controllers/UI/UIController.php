@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 class UIController extends Controller
 {
     public function index(){
-
         return view('front.index');
 
     }

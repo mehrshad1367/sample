@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Author;
 use App\Artical;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AuthorController extends Controller
 {
     public function index(){
 
-        $articles=Artical::all()->sortBy('id');
+//        $id = Auth::user()->id;
+ $x=Artical::where('id',2);
+        Log::info(print_r($x, true));
+
         return view('portal.author',compact('articles'));
     }
 
