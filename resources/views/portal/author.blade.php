@@ -12,8 +12,12 @@
                 <img src="{{asset('portal/dist/img/credit/author.jpg')}}" class="img-lg" style="width: 55%;height: auto ;margin-right: 270px; " alt="Cinque Terre">
 
             </section>
-
-
+            <div class="col-3">
+            <select name="" id="btn-group-article" class="form-control input-sm">
+                <option value="city">City</option>
+                <option value="status">Status</option>
+            </select>
+            </div>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
@@ -24,7 +28,7 @@
                     <th colspan="2">Operation</th>
                 </tr>
                 </thead>
-            <tbody>@if(! empty($articles))
+            <tbody>@if(!empty($articles))
             @foreach($articles as $article)
                 <tr>
                     <td>{{ $article->id }}</td>

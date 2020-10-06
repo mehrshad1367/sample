@@ -29,3 +29,18 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  $("#btn-group-article").click(function (event) {
+    event.preventDefault();
+alert('salam');
+    var record_id = $(this).data('id');
+
+    $.ajax({
+      url: 'getinfo/'+ record_id,
+      type: 'POST',
+      success: function (response) {
+        window.location.replace($("#btn-group-article").attr("href"));
+      }
+    });
+  });
+});

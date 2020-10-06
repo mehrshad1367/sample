@@ -18,10 +18,10 @@ Route::get('/', function () {
 
 });
 Auth::routes();
-Route::get('author/edit/2', function(){
-dd();
-    return redirect('profile/2');
-});
+//Route::get('author/edit/2', function(){
+//dd();
+//    return redirect('profile/2');
+//});
 Route::get('lang/{ln}', 'Lang\LangController@ln')->name('lang');
 
 Route::group(['middleware' => ['langCheck']], function () {

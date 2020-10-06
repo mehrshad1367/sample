@@ -5,20 +5,31 @@ namespace App\Http\Controllers\Author;
 use App\Artical;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
 {
+    use Notifiable;
     public function index(){
 
-//        $id = Auth::user()->id;
- $x=Artical::where('id',2);
-        Log::info(print_r($x, true));
-
+//        $id = Auth::user();
+//        Log::info(print_r($x, true));
+        $articles= DB::table('articals')
+//                    ->groupBy('status')
+                    ->get();
         return view('portal.author',compact('articles'));
     }
 
+    public function indexBy($row)
+    {
+        $articles = DB::table('articals')
+                    ->groupBy($row)
+                    ->orderBy('created_at','desc')
+                    ->get();
+    }
     public function edit($id)
     {
 
