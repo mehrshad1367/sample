@@ -42,9 +42,10 @@ Route::group(['middleware'=>['auth']], function (){
         Route::post('profile/update/{id}', 'ProfileController@update')->name('profile.update');
     });
 //-----------------------Access--------------------------------
-    Route::group(['middleware' => ['access']], function () {
+    Route::group([], function () {
         Route::get('adminPortal', 'Admin\AdminController@index')->name('admin.Portal');
         Route::get('authorPortal', 'Author\AuthorController@index')->name('author.Portal');
+        Route::get('authorPortal/fetch_data', 'Author\AuthorController@fetch_data');
         Route::get('author/edit/{id}', 'Author\AuthorController@edit')->name('author.edit');
         Route::post('author/update/{id}', 'Author\AuthorController@update')->name('author.update');
         Route::get('author/confirm/{id}', 'Author\AuthorController@confirm')->name('author.confirm');

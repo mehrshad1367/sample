@@ -835,5 +835,7 @@
 <script src="{{asset('portal/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('portal/dist/js/demo.js')}}"></script>
+
+<script src="{{asset('portal/dist/js/MyJs.js')}}"></script>
 </body>
 </html>

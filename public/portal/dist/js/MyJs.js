@@ -11,8 +11,6 @@ $.ajaxSetup({
 // });
 
 
-
-
 $(document).ready(function () {
   $("#btn_click").click(function (event) {
     event.preventDefault();
@@ -20,27 +18,28 @@ $(document).ready(function () {
     var record_id = $(this).data('id');
 
     $.ajax({
-      url: 'getinfo/'+ record_id,
+      url: 'getinfo/' + record_id,
       type: 'POST',
       success: function (response) {
         window.location.replace($("#btn_click").attr("href"));
       }
     });
   });
-});
 
-$(document).ready(function () {
-  $("#btn-group-article").click(function (event) {
+    $(document).on('click', '.pagination a', function(event){
     event.preventDefault();
-alert('salam');
-    var record_id = $(this).data('id');
-
-    $.ajax({
-      url: 'getinfo/'+ record_id,
-      type: 'POST',
-      success: function (response) {
-        window.location.replace($("#btn-group-article").attr("href"));
-      }
-    });
+    var page = $(this).attr('href').split('page=')[1];
+    fetch_data(page);
   });
+
 });
+function fetch_data(page) {
+
+  $.ajax({
+    url: "authorPortal/fetch_data?page=" + page,
+    success: function(data) {
+      $('#table_container').html(data);
+    }
+  });
+
+}

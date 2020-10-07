@@ -18,44 +18,17 @@
                 <option value="status">Status</option>
             </select>
             </div>
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>title</th>
-                    <th>category</th>
-                    <th>body</th>
-                    <th colspan="2">Operation</th>
-                </tr>
-                </thead>
-            <tbody>@if(!empty($articles))
-            @foreach($articles as $article)
-                <tr>
-                    <td>{{ $article->id }}</td>
-                    <td>{{$article->title}}</td>
-                    @if(__('msg.Fa') == 'فارسی')
+            @csrf
+            <div id="table_container">
+            @include('portal.table')
 
-                    <td> <?php convertEnToFa($article->category); ?> </td>
-                    <td> <?php convertEnToFa($article->body); ?></td>
-                    @else
-                        <td> {{ $article->category }} </td>
-                        <td> {{ $article->body }}</td>
-                    @endif
-                    <td><a class = "btn btn-primary" style="cursor: pointer ; color: white" href="{{ url('author/edit',['id'=>$article->id]) }}" data-id="{{ $article->id }}" id="btn_update">Edit</a>
-                    @if($article->status != 1)
-                        <a class = "btn btn-success" style="cursor: pointer ; color: white" href="{{ url('author/confirm',['id'=>$article->id]) }}" data-id="{{ $article->id }}" id="btn_update">Confirm</a>
-                        @else
-                    <a class = "btn btn-success" style="cursor: pointer ; color: white" href="{{ url('author/confirm',['id'=>$article->id]) }}" data-id="{{ $article->id }}" id="btn_update">Reject</a>
-                    @endif
-                    <a class = "btn btn-danger" style="cursor: pointer ; color: white" href="{{ url('author/delete',['id'=>$article->id]) }}" data-id="{{ $article->id }}" id="btn_delete">Delete</a></td>
+            </div>
 
-                </tr>
-            @endforeach
-            @endif
-            </tbody>
-            </table>
         </div>
     </div>
 </div>
 
+
 @endsection
+
+
